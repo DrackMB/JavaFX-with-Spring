@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="649.0" style="-fx-background-color: #2D3447;" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comjavafxwithmeven.AdminControlle">
+   <children>
+      <JFXButton fx:id="ajouterParking" layoutX="32.0" layoutY="270.0" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #3137f7;" text="Ajouter Parking" textFill="WHITE" />
+      <JFXButton fx:id="suprimerParking" layoutX="193.0" layoutY="270.0" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #c71111;" text="Suprimer Parking" textFill="WHITE" />
+      <JFXButton fx:id="ajouterAgent" layoutX="355.0" layoutY="270.0" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #3137f7;" text="Ajouter Agent" textFill="#f8f8f8" />
+      <Label alignment="CENTER" layoutX="147.0" layoutY="52.0" prefHeight="54.0" prefWidth="208.0" style="-fx-font-style: italic; -fx-font-family: PG Isadora Cyr Pro;" text="Welcom" textFill="#2196f3">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="label" alignment="CENTER" layoutX="354.0" layoutY="53.0" prefHeight="47.0" prefWidth="145.0" style="-fx-font-style: italic; -fx-font-family: PG Isadora Cyr Pro;" textFill="#2196f3">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="suprimerAgent" layoutX="520.0" layoutY="270.0" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #c71111;" text="Suprimer Agent" textFill="#f8f8f8" />
+      <JFXButton fx:id="accesParking" layoutX="442.0" layoutY="138.0" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #3137f7;" text="Acces Parking" textFill="WHITE" />
+      <JFXTextField fx:id="NameParking" layoutX="147.0" layoutY="138.0" prefHeight="28.0" prefWidth="265.0" promptText="Name of Parking">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="Deconneter" layoutX="267.0" layoutY="348.0" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #3137f7;" text="Déconneter" textFill="#f8f8f8" />
+   </children>
+</fx:root>
