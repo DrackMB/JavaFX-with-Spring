@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package comjavafxwithmeven;
+package com.GetionDeParking.Controller;
 
 import com.GestionDeParking.bean.Client;
 import com.GestionDeParking.bean.Parking;
