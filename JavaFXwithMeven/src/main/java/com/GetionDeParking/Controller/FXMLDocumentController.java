@@ -71,7 +71,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void AccetClient(ActionEvent event) throws IOException {
        client.getScene().getWindow().hide();
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ClinetPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ClientPage.fxml"));
         Stage stage = new Stage(); 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");

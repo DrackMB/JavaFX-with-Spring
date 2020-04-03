@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="parentPane" prefHeight="528.0" prefWidth="662.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="parentPane" prefHeight="528.0" prefWidth="662.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GetionDeParking.Controller.ClientController">
    <children>
       <JFXTextField fx:id="name" layoutX="221.0" layoutY="126.0" prefHeight="25.0" prefWidth="236.0" promptText="Enter your ussername">
          <font>
@@ -23,7 +23,7 @@
          </toggleGroup>
       </JFXRadioButton>
       <JFXRadioButton fx:id="female" layoutX="321.0" layoutY="378.0" text="Female" textFill="#a0a2ab" toggleGroup="$gender" />
-      <JFXButton fx:id="signup" layoutX="215.0" layoutY="454.0" onAction="#signupAction" prefHeight="25.0" prefWidth="236.0" style="-fx-background-color: #2196f3;" text="Reserve" textFill="#e8e8eb">
+      <JFXButton fx:id="signup" layoutX="215.0" layoutY="454.0"  prefHeight="25.0" prefWidth="236.0" style="-fx-background-color: #2196f3;" text="Reserve" textFill="#e8e8eb">
          <font>
             <Font size="14.0" />
          </font>
