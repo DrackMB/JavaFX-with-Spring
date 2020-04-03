@@ -7,11 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="590.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GetionDeParking.Controller.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="570.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GetionDeParking.Controller.FXMLDocumentController">
 <children>
-    <Button fx:id="client" layoutX="88.0" layoutY="237.0" mnemonicParsing="false" onAction="#AccetClient" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #4f9f30;" text="Client" textFill="#fff9e5db" />
-    <Button fx:id="admine" layoutX="381.0" layoutY="237.0" mnemonicParsing="false" onAction="#AccetAdmin" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #e7b256;" text="Administrateur" textFill="#67534d" />
-    <Label fx:id="label" alignment="CENTER" layoutX="121.0" layoutY="93.0" prefHeight="65.0" prefWidth="346.0" text="Welcome" textAlignment="CENTER" textFill="#4f92ff">
+    <Button fx:id="client" layoutX="67.0" layoutY="237.0" mnemonicParsing="false" onAction="#AccetClient" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #4f9f30;" text="Client" textFill="#fde7a1db">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+    <Button fx:id="admine" layoutX="404.0" layoutY="237.0" mnemonicParsing="false" onAction="#AccetAdmin" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #e7b256;" text="Administrateur" textFill="#67534d">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+    <Label fx:id="label" alignment="CENTER" layoutX="61.0" layoutY="100.0" prefHeight="68.0" prefWidth="448.0" text="Welcome" textAlignment="CENTER" textFill="#4f92ff">
          <font>
             <Font name="System Italic" size="46.0" />
          </font></Label>
