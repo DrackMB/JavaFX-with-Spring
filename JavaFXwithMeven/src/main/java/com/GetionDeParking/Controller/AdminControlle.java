@@ -19,10 +19,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
-import javax.swing.JLabel;
+import javafx.scene.layout.AnchorPane;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.GsonConverterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
@@ -54,13 +54,14 @@ public class AdminControlle implements Initializable {
     private JFXTextField NameParking;
     @FXML
     private 
-    JLabel label ;
+    Label label ;
+  
 
-    public JLabel getLabel() {
+    public Label getLabel() {
         return label;
     }
 
-    public void setLabel(JLabel label) {
+    public void setLabel(Label label) {
         this.label = label;
     }
     @FXML

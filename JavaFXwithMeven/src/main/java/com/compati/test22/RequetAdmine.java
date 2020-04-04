@@ -6,10 +6,14 @@
 package com.compati.test22;
 
 import com.GestionDeParking.bean.Administrateur;
+import com.GestionDeParking.bean.Parking;
 import com.GestionDeParking.bean.Reservation;
+import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -21,9 +25,16 @@ public interface RequetAdmine {
 
     @GET("GestionDeParking/Admin/user/{users}")
     public Call<Administrateur> findByLogin(@Path("users") String user);
-
-    @POST("/")
-    public Call<Reservation> save(@Body Reservation reservation);
+    
+    @POST("GestionDeParking/Reservation/")
+    @Headers("Content-Type: application/json")
+    public Call<Integer> save(@Body Reservation reservation);
+    
+    @GET("GestionDeParking/Parking/")
+    public Call<List<Parking>>findAllParking();
+    
+    @GET("/GestionDeParking/Parking/liblle/{libelle}")
+    public Call<Parking> findByLibelle(@Path("libelle") String libelle);
     
     
     

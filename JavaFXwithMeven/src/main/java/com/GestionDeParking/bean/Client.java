@@ -1,22 +1,40 @@
 package com.GestionDeParking.bean;
 
-import java.io.Serializable;
-import java.util.List;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+public class Client {
 
-public class Client implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-   
-    private Long id;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("numCIN")
+    @Expose
     private String numCIN;
+    @SerializedName("numMatricule")
+    @Expose
     private String numMatricule;
+    @SerializedName("numTele")
+    @Expose
     private String numTele;
 
-    private List<Reservation> reservations;
+    public Client(String numCIN, String numMatricule, String numTele) {
+        this.numCIN = numCIN;
+        this.numMatricule = numMatricule;
+        this.numTele = numTele;
+    }
+
+    
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNumCIN() {
-        return this.numCIN;
+        return numCIN;
     }
 
     public void setNumCIN(String numCIN) {
@@ -24,58 +42,19 @@ public class Client implements Serializable {
     }
 
     public String getNumMatricule() {
-        return this.numMatricule;
+        return numMatricule;
     }
 
     public void setNumMatricule(String numMatricule) {
-         this.numMatricule = numMatricule;
+        this.numMatricule = numMatricule;
     }
 
     public String getNumTele() {
-         return this.numTele;
+        return numTele;
     }
 
     public void setNumTele(String numTele) {
-         this.numTele = numTele;
+        this.numTele = numTele;
     }
 
-    public List<Reservation> getReservations() {
-        return this.reservations;
-    }
-
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-         this.id = id;
-    }
-
-    public int hashCode() {
-         int hash = 0;
-         hash += (this.id != null) ? this.id.hashCode() : 0;
-         return hash;
-    }
-
-    public boolean equals(Object object) {
-         if (!(object instanceof Client)) {
-            return false;
-        }
-        Client other = (Client) object;
-         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-         return true;
-    }
-
-    @Override
-    public String toString() {
-         return "com.GestionDeParking.bean.Client[ id=" + this.id + " ]";
-    }
 }
-
-
