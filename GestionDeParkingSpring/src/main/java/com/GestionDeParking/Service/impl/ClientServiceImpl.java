@@ -27,11 +27,15 @@ public class ClientServiceImpl  implements ClientService {
 
     @Override
     public int save(Client client) {
-        if (findByNumCIN(client.getNumCIN()) == null) {
+        if(client!=null){
+            if (findByNumCIN(client.getNumCIN()) == null) {
             this.clientRepository.save(client);
             return 1;
         }
-         return -1;
+            return -1;
+        }
+        
+         return -2;
     }
 
     @Override

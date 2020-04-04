@@ -15,4 +15,7 @@ public interface ReservationService {
     int validateReservation(boolean validat, Client client);
 
     List<Reservation> findAll();
+
+    List<Reservation> findByParkingLiblle(String liblle);
+
 }

@@ -1,8 +1,11 @@
 package com.GestionDeParking.WebService;
 
 import com.GestionDeParking.Service.facad.AdministrateurService;
+import com.GestionDeParking.bean.Administrateur;
 import com.GestionDeParking.bean.Agent;
 import com.GestionDeParking.bean.Parking;
+import com.GestionDeParking.bean.Reservation;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,10 +23,16 @@ public class AdministrateurRes {
     @Autowired
     AdministrateurService administrateurService;
 
-    @GetMapping("/user/{user}/mdp/{mdp}")
-    public int Login(@PathVariable String user, @PathVariable String mdp) {
-        return administrateurService.Login(user, mdp);
+    @GetMapping("/listeReservation/parkinlibelle/{liblle}")
+    public List<Reservation> afficherListdeReservation(@PathVariable String liblle) {
+        return administrateurService.afficherListdeReservation(liblle);
     }
+
+    @GetMapping("/user/{user}")
+    public Administrateur Login(@PathVariable String user) {
+        return administrateurService.Login(user);
+    }
+
     @Transactional
     @DeleteMapping("/liblle/{liblle}")
     public int suprimerParking(@PathVariable String liblle) {
@@ -39,6 +48,7 @@ public class AdministrateurRes {
     public int AjouterAgent(@RequestBody Agent agent) {
         return administrateurService.AjouterAgent(agent, agent.getParking());
     }
+
     @Transactional
     @DeleteMapping("/agent/numCIN/{numCIN}")
     public int suprimerAgent(@PathVariable String numCIN) {

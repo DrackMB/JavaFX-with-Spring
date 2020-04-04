@@ -2,6 +2,7 @@ package com.GestionDeParking.bean;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,10 +18,10 @@ public class Reservation  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Temporal(TemporalType.DATE)
-    private Date dateEntre;
-    @Temporal(TemporalType.DATE)
-    private Date dateSortie;
+    //@Temporal(TemporalType.DATE)
+    private String dateEntre;
+    //@Temporal(TemporalType.DATE)
+    private String dateSortie;
     @ManyToOne
     private Client client;
     @ManyToOne
@@ -35,19 +36,19 @@ public class Reservation  implements Serializable {
          this.parking = parking;
     }
 
-    public Date getDateEntre() {
+    public String getDateEntre() {
          return this.dateEntre;
     }
 
-    public void setDateEntre(Date dateEntre) {
+    public void setDateEntre(String dateEntre) {
          this.dateEntre = dateEntre;
     }
 
-    public Date getDateSortie() {
+    public String getDateSortie() {
          return this.dateSortie;
     }
 
-    public void setDateSortie(Date dateSortie) {
+    public void setDateSortie(String dateSortie) {
          this.dateSortie = dateSortie;
     }
 

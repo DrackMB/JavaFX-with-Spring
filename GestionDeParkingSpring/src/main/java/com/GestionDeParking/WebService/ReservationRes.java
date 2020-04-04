@@ -5,7 +5,6 @@ import com.GestionDeParking.bean.Client;
 import com.GestionDeParking.bean.Reservation;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,15 +21,18 @@ public class ReservationRes {
 
     @Autowired
     private ReservationService reservationService;
+
     @GetMapping("/ClientNumCIN/{numCIN}")
     public Reservation findByClientNumCIN(@PathVariable String numCIN) {
         return reservationService.findByClientNumCIN(numCIN);
     }
+
     @Transactional
     @DeleteMapping("/ClientNumCIN/{numCIN}")
     public int deleteByClientNumCIN(@PathVariable String numCIN) {
         return reservationService.deleteByClientNumCIN(numCIN);
     }
+
     @PostMapping("/")
     public int save(@RequestBody Reservation reservation) {
         return reservationService.save(reservation);
@@ -39,12 +41,14 @@ public class ReservationRes {
 //    public int validateReservation( @PathVariable boolean valide,@RequestBody Reservation reservation) {
 //        return reservationService.validateReservation(valide, reservation);
 //    }
-     @Transactional
-     @PutMapping("/Reservation/validat/{valide}")
-    public int validateReservation(@PathVariable boolean valide,@RequestBody Client client) {
+
+    @Transactional
+    @PutMapping("/Reservation/validat/{valide}")
+    public int validateReservation(@PathVariable boolean valide, @RequestBody Client client) {
         return reservationService.validateReservation(valide, client);
     }
-    @GetMapping("/")
+
+    @GetMapping("/ALL/")
     public List<Reservation> findAll() {
         return reservationService.findAll();
     }
