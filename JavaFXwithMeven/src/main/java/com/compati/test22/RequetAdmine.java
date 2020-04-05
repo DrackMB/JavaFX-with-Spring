@@ -6,6 +6,7 @@
 package com.compati.test22;
 
 import com.GestionDeParking.bean.Administrateur;
+import com.GestionDeParking.bean.Agent;
 import com.GestionDeParking.bean.Parking;
 import com.GestionDeParking.bean.Reservation;
 import java.util.List;
@@ -39,4 +40,6 @@ public interface RequetAdmine {
     @GET("/GestionDeParking/Reservation/parkingLibelle/{liblle}")
     public Call< List<Reservation>> findListeReservationParking(@Path("liblle") String liblle);
 
+     @GET("/GestionDeParking/Agent/parkingLibelle/{liblle}")
+     public Call< List<Agent>> findListeAgentParking(@Path("liblle") String liblle);
 }

@@ -7,26 +7,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="674.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GetionDeParking.Controller.AccetParkingController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="925.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GetionDeParking.Controller.AccetParkingController">
    <children>
-      <JFXButton fx:id="ok" layoutX="22.0" layoutY="323.0" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="185.0" text="Recharcher" textFill="#12b71a">
+      <JFXButton fx:id="ok" layoutX="705.0" layoutY="84.0" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="185.0" text="Afficher Reservation" textFill="#12b71a">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="534.0" layoutY="325.0" text="Annuler" textFill="#5d82c7" />
-      <TableView fx:id="tableView" layoutX="2.0" prefHeight="242.0" prefWidth="672.0">
-       
-           
+      <JFXButton layoutX="846.0" layoutY="359.0" text="Annuler" textFill="#5d82c7" />
+      <TableView fx:id="tableView" layoutX="2.0" prefHeight="198.0" prefWidth="673.0">
                <columns>
-                  <TableColumn fx:id="dateEntre" prefWidth="154.40" text="dateEntre" />
-                  <TableColumn fx:id="dateSortie" prefWidth="221.60" text="dateSortie" />
-                  <TableColumn fx:id="client" prefWidth="150.40" text="client" />
-                  <TableColumn fx:id="valide" prefWidth="144.80" text="valide" />
-               </columns>
-           
-        
+                  <TableColumn fx:id="dateEntre" prefWidth="154.40" text="DateEntre" />
+                  <TableColumn fx:id="dateSortie" prefWidth="221.60" text="DateSortie" />
+                  <TableColumn fx:id="client" prefWidth="150.40" text="Client" />
+                  <TableColumn fx:id="valide" prefWidth="144.80" text="Valide" />
+            </columns>
       </TableView>
-      <JFXTextField fx:id="t" layoutX="254.0" layoutY="301.0" promptText="Nom De Parking" />
+      
+     <TableView fx:id="tableViewAg" layoutX="2.0" layoutY="195.0" prefHeight="210.0" prefWidth="674.0">
+          <columns>
+                  <TableColumn fx:id="nom" prefWidth="154.40" text="nom" />
+                  <TableColumn fx:id="prenom" prefWidth="221.60" text="prenom" />
+                  <TableColumn fx:id="numCIN" prefWidth="150.40" text="numCIN" />
+                  <TableColumn fx:id="dateDeRecreutment" prefWidth="144.80" text="dateDeRecreutment" />
+         </columns>
+    </TableView>
+
+      <JFXTextField fx:id="t" layoutX="743.0" layoutY="185.0" promptText="Nom De Parking" />
+      <JFXButton fx:id="ok1" layoutX="718.0" layoutY="285.0" onAction="#AfficherClient" prefHeight="30.0" prefWidth="185.0" text="Afficher Agent" textFill="#12b71a">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
