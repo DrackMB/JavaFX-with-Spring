@@ -5,6 +5,7 @@ import com.GestionDeParking.bean.Agent;
 import com.GestionDeParking.bean.Client;
 import com.GestionDeParking.bean.Parking;
 import com.GestionDeParking.bean.Reservation;
+import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -54,4 +55,9 @@ public class AgentRes {
     public Agent findByNumCIN(String numCIN) {
         return agentService.findByNumCIN(numCIN);
     }
+    @GetMapping("/parkingLibelle/{liblle}")
+    public List<Agent> findByParkingLiblle(String liblle) {
+        return agentService.findByParkingLiblle(liblle);
+    }
+    
 }

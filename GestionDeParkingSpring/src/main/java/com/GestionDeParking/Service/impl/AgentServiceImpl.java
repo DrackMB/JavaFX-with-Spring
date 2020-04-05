@@ -8,6 +8,7 @@ import com.GestionDeParking.bean.Agent;
 import com.GestionDeParking.bean.Client;
 import com.GestionDeParking.bean.Parking;
 import com.GestionDeParking.bean.Reservation;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,5 +66,10 @@ public class AgentServiceImpl implements AgentService {
     @Override
     public Agent findByNumCIN(String numCIN) {
         return this.agentRepository.findByNumCIN(numCIN);
+    }
+
+    @Override
+    public List<Agent> findByParkingLiblle(String liblle) {
+        return this.agentRepository.findByParkingLiblle(liblle);
     }
 }

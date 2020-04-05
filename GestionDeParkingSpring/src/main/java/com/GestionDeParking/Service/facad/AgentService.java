@@ -4,6 +4,7 @@ import com.GestionDeParking.bean.Agent;
 import com.GestionDeParking.bean.Client;
 import com.GestionDeParking.bean.Parking;
 import com.GestionDeParking.bean.Reservation;
+import java.util.List;
 
 public interface AgentService {
 
@@ -20,4 +21,6 @@ public interface AgentService {
     int save(Agent paramAgent, Parking paramParking);
 
     Agent findByNumCIN(String paramString);
+    
+    List<Agent> findByParkingLiblle(String liblle);
 }

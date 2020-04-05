@@ -52,4 +52,9 @@ public class ReservationRes {
     public List<Reservation> findAll() {
         return reservationService.findAll();
     }
+    @GetMapping("/parkingLibelle/{liblle}")
+    public List<Reservation> findByParkingLiblle( @PathVariable String liblle) {
+        return reservationService.findByParkingLiblle(liblle);
+    }
+    
 }
