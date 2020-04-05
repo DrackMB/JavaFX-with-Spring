@@ -25,18 +25,18 @@ public interface RequetAdmine {
 
     @GET("GestionDeParking/Admin/user/{users}")
     public Call<Administrateur> findByLogin(@Path("users") String user);
-    
+
     @POST("GestionDeParking/Reservation/")
     @Headers("Content-Type: application/json")
     public Call<Integer> save(@Body Reservation reservation);
-    
+
     @GET("GestionDeParking/Parking/")
-    public Call<List<Parking>>findAllParking();
-    
+    public Call<List<Parking>> findAllParking();
+
     @GET("/GestionDeParking/Parking/liblle/{libelle}")
     public Call<Parking> findByLibelle(@Path("libelle") String libelle);
-    
-    
-    
+
+    @GET("/GestionDeParking/Reservation/parkingLibelle/{liblle}")
+    public Call< List<Reservation>> findListeReservationParking(@Path("liblle") String liblle);
 
 }

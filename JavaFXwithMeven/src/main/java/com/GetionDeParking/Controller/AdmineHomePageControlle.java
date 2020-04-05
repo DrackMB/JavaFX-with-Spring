@@ -65,25 +65,28 @@ public class AdmineHomePageControlle implements Initializable {
 
                     Administrateur adminResult = rspns.body();
                     if (adminResult.getMdp().equals(password.getText())) {
+
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
-                                login.getScene().getWindow().hide();
-                                Parent root = null;
-                                try {
-                                    root = FXMLLoader.load(getClass().getResource("/fxml/AdminFX.fxml"));
+                                
+                                AdminControlle  adminControlle = null;
+                                            
+                                    login.getScene().getWindow().hide();
+                                    Parent root = null;
+                                    try {
+                                        root = FXMLLoader.load(getClass().getResource("/fxml/AdminFX.fxml"));
 
-                                } catch (IOException ex) {
-                                    Logger.getLogger(AdmineHomePageControlle.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                                Stage stage = new Stage();
-                                Scene scene = new Scene(root);
-                                scene.getStylesheets().add("/styles/Styles.css");
-
-                                stage.setTitle("Admin");
-                                stage.setScene(scene);
-                                stage.show();
-
+                                    } catch (IOException ex) {
+                                        Logger.getLogger(AdmineHomePageControlle.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                    Stage stage = new Stage();
+                                    Scene scene = new Scene(root);
+                                    scene.getStylesheets().add("/styles/Styles.css");
+                                    stage.setTitle("Admin");
+                                    stage.setScene(scene);
+                                    stage.show();
+                                
                             }
 
                         });

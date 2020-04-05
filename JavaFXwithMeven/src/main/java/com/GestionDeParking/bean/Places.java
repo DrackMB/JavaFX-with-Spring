@@ -1,63 +1,32 @@
 package com.GestionDeParking.bean;
 
-import java.io.Serializable;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-
-public class Places
-        implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Places {
     
-    private Long id;
-    private Double nbrPlaces;
+    @SerializedName("nbrPlaces")
+    @Expose
+    private String nbrPlaces;
+    @SerializedName("parking")
+    @Expose
     private Parking parking;
 
-    public Double getNbrPlaces() {
-        return this.nbrPlaces;
+    public String getNbrPlaces() {
+        return nbrPlaces;
     }
 
-    public void setNbrPlaces(Double nbrPlaces) {
+    public void setNbrPlaces(String nbrPlaces) {
         this.nbrPlaces = nbrPlaces;
     }
 
     public Parking getParking() {
-        return this.parking;
+        return parking;
     }
 
     public void setParking(Parking parking) {
         this.parking = parking;
     }
+    
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-         this.id = id;
-    }
-
-    public int hashCode() {
-         int hash = 0;
-         hash += (this.id != null) ? this.id.hashCode() : 0;
-        return hash;
-    }
-
-    public boolean equals(Object object) {
-        if (!(object instanceof Places)) {
-            return false;
-        }
-         Places other = (Places) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-             return false;
-        }
-         return true;
-    }
-
-    @Override
-    public String toString() {
-         return "com.GestionDeParking.bean.Places[ id=" + this.id + " ]";
-    }
 }
-
-
-

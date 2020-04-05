@@ -1,6 +1,7 @@
 package com.GetionDeParking.Controller;
 
 import com.GestionDeParking.bean.Administrateur;
+import com.GestionDeParking.bean.Parking;
 import com.compati.test22.RequetAdmine;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,6 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,7 +39,7 @@ public class AdminControlle implements Initializable {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
-    RequetAdmine requetVerification = retrofit.create(RequetAdmine.class);
+    RequetAdmine requet = retrofit.create(RequetAdmine.class);
     @FXML
     private JFXButton accesParking;
     @FXML
@@ -53,9 +55,7 @@ public class AdminControlle implements Initializable {
     @FXML
     private JFXTextField NameParking;
     @FXML
-    private 
-    Label label ;
-  
+    private Label label;
 
     public Label getLabel() {
         return label;
@@ -64,52 +64,55 @@ public class AdminControlle implements Initializable {
     public void setLabel(Label label) {
         this.label = label;
     }
+
     @FXML
     private void handleButtonAction(ActionEvent event) {
 
-        Call<Administrateur> logins = requetVerification.findByLogin("");
-        logins.enqueue(new Callback<Administrateur>() {
+        Call<Parking> logins = requet.findByLibelle(NameParking.getText());
+        logins.enqueue(new Callback<Parking>() {
             @Override
-            public void onResponse(Call<Administrateur> call, Response<Administrateur> rspns) {
+            public void onResponse(Call<Parking> call, Response<Parking> rspns) {
                 if (rspns.isSuccessful()) {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            accesParking.getScene().getWindow().hide();
+                            FXMLLoader loade = new FXMLLoader(getClass().getResource("/fxml/AccetParking.fxml"));
+                            Parent root = null;
+                            try {
+                                root = loade.load();
 
-                    Administrateur adminResult = rspns.body();
-                    
+                            } catch (IOException ex) {
+                                Logger.getLogger(AdmineHomePageControlle.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            AccetParkingController a = loade.getController();
+                            a.SetText(NameParking.getText());
+                            Stage stage = new Stage();
+                            Scene scene = new Scene(root);
+                            scene.getStylesheets().add("/styles/Styles.css");
+                            stage.setTitle("Admin");
+                            stage.setScene(scene);
+                            stage.show();
+                        }
 
-                } else {
-                    System.out.println("erooore" + rspns.errorBody());
+                    });
+
                 }
+
             }
 
             @Override
-            public void onFailure(Call<Administrateur> call, Throwable thrwbl) {
+            public void onFailure(Call<Parking> call, Throwable thrwbl) {
                 thrwbl.printStackTrace();
             }
+
+            // }
         });
-        if (x == 1) {
-            ajouterParking.getScene().getWindow().hide();
-            Parent root = null;
-            try {
-                root = FXMLLoader.load(getClass().getResource("/fxml/AdminFX.fxml"));
-
-            } catch (IOException ex) {
-                Logger.getLogger(AdminControlle.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add("/styles/Styles.css");
-
-            stage.setTitle("Admin");
-            stage.setScene(scene);
-            stage.show();
-        }
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         NameParking.setStyle("-fx-text-inner-color:#a0a2ab");
 
-        
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="674.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GetionDeParking.Controller.AccetParkingController">
+   <children>
+      <JFXButton fx:id="ok" layoutX="22.0" layoutY="323.0" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="185.0" text="Recharcher" textFill="#12b71a">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="534.0" layoutY="325.0" text="Annuler" textFill="#5d82c7" />
+      <TableView fx:id="tableView" layoutX="2.0" prefHeight="242.0" prefWidth="672.0">
+       
+           
+               <columns>
+                  <TableColumn fx:id="dateEntre" prefWidth="154.40" text="dateEntre" />
+                  <TableColumn fx:id="dateSortie" prefWidth="221.60" text="dateSortie" />
+                  <TableColumn fx:id="client" prefWidth="150.40" text="client" />
+                  <TableColumn fx:id="valide" prefWidth="144.80" text="valide" />
+               </columns>
+           
+        
+      </TableView>
+      <JFXTextField fx:id="t" layoutX="254.0" layoutY="301.0" promptText="Nom De Parking" />
+   </children>
+</AnchorPane>

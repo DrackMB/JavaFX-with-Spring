@@ -1,31 +1,33 @@
 package com.GestionDeParking.bean;
 
-import java.io.Serializable;
-import java.util.Date;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+public class Agent {
 
-public class Agent  implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-  
-    private Long id;
+    @SerializedName("nom")
+    @Expose
     private String nom;
+    @SerializedName("prenom")
+    @Expose
     private String prenom;
+    @SerializedName("numCIN")
+    @Expose
     private String numCIN;
-    private Date dateDeRecreutment;
-    
-    private Parking parking;
+    @SerializedName("dateDeRecreutment")
+    @Expose
+    private String dateDeRecreutment;
 
     public String getNom() {
-         return this.nom;
+        return nom;
     }
 
     public void setNom(String nom) {
-         this.nom = nom;
+        this.nom = nom;
     }
 
     public String getPrenom() {
-        return this.prenom;
+        return prenom;
     }
 
     public void setPrenom(String prenom) {
@@ -33,58 +35,19 @@ public class Agent  implements Serializable {
     }
 
     public String getNumCIN() {
-         return this.numCIN;
+        return numCIN;
     }
 
     public void setNumCIN(String numCIN) {
-         this.numCIN = numCIN;
+        this.numCIN = numCIN;
     }
 
-    public Date getDateDeRecreutment() {
-         return this.dateDeRecreutment;
+    public String getDateDeRecreutment() {
+        return dateDeRecreutment;
     }
 
-    public void setDateDeRecreutment(Date dateDeRecreutment) {
-         this.dateDeRecreutment = dateDeRecreutment;
+    public void setDateDeRecreutment(String dateDeRecreutment) {
+        this.dateDeRecreutment = dateDeRecreutment;
     }
 
-    public Parking getParking() {
-         return this.parking;
-    }
-
-    public void setParking(Parking parking) {
-         this.parking = parking;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int hashCode() {
-         int hash = 0;
-         hash += (this.id != null) ? this.id.hashCode() : 0;
-         return hash;
-    }
-
-    public boolean equals(Object object) {
-         if (!(object instanceof Agent)) {
-             return false;
-        }
-         Agent other = (Agent) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-         return true;
-    }
-
-    @Override
-    public String toString() {
-         return "com.GestionDeParking.bean.Agent[ id=" + this.id + " ]";
-    }
 }
-
-
