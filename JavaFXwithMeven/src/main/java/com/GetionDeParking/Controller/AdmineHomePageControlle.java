@@ -20,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,6 +54,9 @@ public class AdmineHomePageControlle implements Initializable {
 
     @FXML
     private JFXButton forgetpassword;
+    
+    @FXML
+    private Label errore;
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -91,7 +95,7 @@ public class AdmineHomePageControlle implements Initializable {
 
                         });
 
-                    }
+                    } else{ errore.setText("Errore mdp ou bien user n'existe pas ");}
 
                 } else {
                     System.out.println("erooore" + rspns.errorBody());

@@ -62,19 +62,25 @@ public class AccetParkingController implements Initializable {
     private TableColumn <Agent,String> dateDeRecreutment;
     //--------------------------------------
     @FXML
-    private TableColumn<Reservation, String> dateEntre= new TableColumn<>("DateEntre") ;
+    private  TableColumn<Reservation, String> dateEntre ;
     @FXML
-    private TableColumn<Reservation, String> dateSortie = new TableColumn<>("DateSortie"); 
+    private TableColumn<Reservation, String> dateSortie; 
     @FXML
-    private TableColumn<Reservation, Long> client = new TableColumn<>("Client") ;
+    private TableColumn<Reservation, Long> client  ;
     @FXML
-    private TableColumn<Reservation, Boolean> valide = new TableColumn<>("Valide") ;
+    private TableColumn<Reservation, Boolean> valide  ;
     @FXML
     private TableColumn reservation ;
     @FXML
     JFXButton ok;
     @FXML
+    JFXButton anuler;
+    @FXML
     private JFXTextField t;
+
+    public AccetParkingController() {
+        this.dateEntre = new TableColumn<>("DateEntre");
+    }
 
     public void SetText(String text) {
         t.setText(text);
@@ -93,7 +99,7 @@ public class AccetParkingController implements Initializable {
                     Platform.runLater(new Runnable() {
          @Override
          public void run() {
-              ObservableList obList = FXCollections.observableList(r);
+              ObservableList<Reservation> obList = FXCollections.observableList(r);
                                     dateEntre.setCellValueFactory(new PropertyValueFactory<>("dateEntre"));
                                     dateSortie.setCellValueFactory(new PropertyValueFactory<>("dateSortie"));
                                     client.setCellValueFactory(new PropertyValueFactory<>("client"));
@@ -101,7 +107,7 @@ public class AccetParkingController implements Initializable {
                                     //reservation.setCellValueFactory(new PropertyValueFactory<>("Reservation"));
                                     //reservation.getColumns().addAll(dateEntre, dateSortie, client, valide);
                                     tableView.setItems(obList);
-                                    tableView.getColumns().addAll(dateEntre, dateSortie, client, valide);
+                                    
                                     tableView.setEditable(true);
                                     System.out.println(obList);
          }          
@@ -134,7 +140,7 @@ public class AccetParkingController implements Initializable {
                                     // agent.setCellValueFactory(new PropertyValueFactory<>("Agent"));
                                     //agent.getColumns().addAll(nom, prenom, numCIN);
                                     tableViewAg.setItems(obList);
-                                    tableViewAg.getColumns().addAll(nom, prenom, numCIN,dateDeRecreutment);
+                                   // tableViewAg.getColumns().addAll(nom, prenom, numCIN,dateDeRecreutment);
                                     tableViewAg.setEditable(true);
                                     System.out.println(obList); 
                }
@@ -149,7 +155,7 @@ public class AccetParkingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //System.out.println(label.getText());
+         t.setStyle("-fx-text-inner-color:#a0a2ab");
 
     }
 

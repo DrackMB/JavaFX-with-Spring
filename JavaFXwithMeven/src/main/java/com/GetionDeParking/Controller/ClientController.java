@@ -100,7 +100,7 @@ public class ClientController implements Initializable {
 
         Client clients = new Client(numCIN.getText(), matriculeN.getText(), numTele.getText());
          x=1;
-        Call<Parking> parkingRes = requet.findByLibelle((String) parking.getValue());
+        Call<Parking> parkingRes = requet.findByLibelle((String) parking.getSelectionModel().getSelectedItem());
         parkingRes.enqueue(new Callback<com.GestionDeParking.bean.Parking>() {
             @Override
             public void onResponse(Call<Parking> call, Response<Parking> parkingRes) {

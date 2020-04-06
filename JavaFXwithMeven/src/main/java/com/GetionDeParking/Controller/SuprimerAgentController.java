@@ -7,12 +7,10 @@ package com.GetionDeParking.Controller;
 
 import com.GestionDeParking.bean.Agent;
 import com.GestionDeParking.bean.Parking;
-import com.GestionDeParking.bean.Reservation;
 import com.compati.test22.RequetAdmine;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -32,11 +30,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * FXML Controller class
  *
  * @author dell
  */
-public class SuprimerParkingController implements Initializable {
+public class SuprimerAgentController implements Initializable {
 
     static final String BASE_URL = "http://localhost:8090/";
     Gson gson = new GsonBuilder()
@@ -49,41 +46,44 @@ public class SuprimerParkingController implements Initializable {
     RequetAdmine requet = retrofit.create(RequetAdmine.class);
 
     @FXML
-    private JFXButton deleteParking;
+    private TableView<Agent> tableView = new TableView<>();
+    @FXML
+    private TableColumn<Agent, String> nom;
+    @FXML
+    private TableColumn<Agent, String> prenom;
+    @FXML
+    private TableColumn<Agent, String> numCIN;
+    @FXML
+    private TableColumn<Agent, String> dateDeRecreutment;
+    @FXML
+    private TableColumn agent;
+
+    @FXML
+    private JFXButton deleteAgent;
 
     @FXML
     private JFXButton terminer;
+    @FXML
+    private Label lablle;
+    
+    @FXML
+    public void terminer(ActionEvent event) {
+        terminer.getScene().getWindow().hide();
 
+    }
     @FXML
-    private JFXButton afficherALL;
-
-    @FXML
-    private Label NameParking;
-
-    @FXML
-    private TableView<Parking> tableView = new TableView<>();
-    @FXML
-    private TableColumn<Parking, String> liblle;
-    @FXML
-    private TableColumn<Parking, String> adress;
-    @FXML
-    private TableColumn parking;
-
-    @FXML
-    public void deleteParking(ActionEvent event) {
-        Parking ra = tableView.getSelectionModel().getSelectedItem();
-        
-        Call<Integer> deleteParking = requet.deleteAgent(ra.getLiblle());
-        deleteParking.enqueue(new Callback<Integer>() {
+    public void deleteAgent(ActionEvent event){
+         Agent ra = tableView.getSelectionModel().getSelectedItem();
+        lablle.setText( "Vous avez supprimer L'agent De nom :  "+ ra.getNom());
+        Call<Integer> deleteAgent = requet.deleteAgent(ra.getNumCIN());
+        deleteAgent.enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> rspns) {
                 if (rspns.isSuccessful()) {
                     if (rspns.body() > 0) {
                         tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
-                        NameParking.setText( "Vous avez supprimer Le parking "+ ra.getLiblle());
                     }
                 } else {
-                    NameParking.setText( "eroore");
                     System.out.println("eroore");
                     System.out.println(rspns.body());
                 }
@@ -94,40 +94,29 @@ public class SuprimerParkingController implements Initializable {
                 thrwbl.getStackTrace();
             }
         });
-
-    }
-
-    @FXML
-    public void terminer(ActionEvent event) {
-        terminer.getScene().getWindow().hide();
-
-    }
-
-    @FXML
-    public void select(ActionEvent event) {
-        
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Call<List<Parking>> findALL = requet.findAllParking();
-        findALL.enqueue(new Callback<List<Parking>>() {
+       Call<List<Agent>> findALL = requet.findAllAgent();
+        findALL.enqueue(new Callback<List<Agent>>() {
             @Override
-            public void onResponse(Call<List<Parking>> call, Response<List<Parking>> rspns) {
-                List<Parking> p = rspns.body();
-                ObservableList<Parking> obList = FXCollections.observableList(p);
-                liblle.setCellValueFactory(new PropertyValueFactory<>("liblle"));
-                adress.setCellValueFactory(new PropertyValueFactory<>("adress"));
+            public void onResponse(Call<List<Agent>> call, Response<List<Agent>> rspns) {
+                List<Agent> p = rspns.body();
+                ObservableList<Agent> obList = FXCollections.observableList(p);
+                nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+                prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+                numCIN.setCellValueFactory(new PropertyValueFactory<>("numCIN"));
+                dateDeRecreutment.setCellValueFactory(new PropertyValueFactory<>("dateDeRecreutment"));
                 tableView.setItems(obList);
                 tableView.setEditable(true);
             }
 
             @Override
-            public void onFailure(Call<List<Parking>> call, Throwable thrwbl) {
+            public void onFailure(Call<List<Agent>> call, Throwable thrwbl) {
                 thrwbl.getStackTrace();
             }
         });
-        NameParking.setStyle("-fx-text-inner-color:#a0a2ab");
-        
     }
+
 }

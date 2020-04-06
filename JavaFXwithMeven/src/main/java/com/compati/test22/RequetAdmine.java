@@ -12,6 +12,7 @@ import com.GestionDeParking.bean.Reservation;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -33,6 +34,9 @@ public interface RequetAdmine {
 
     @GET("GestionDeParking/Parking/")
     public Call<List<Parking>> findAllParking();
+    
+    @GET("/GestionDeParking/Agent/")
+    public Call<List<Agent>> findAllAgent();
 
     @GET("/GestionDeParking/Parking/liblle/{libelle}")
     public Call<Parking> findByLibelle(@Path("libelle") String libelle);
@@ -42,4 +46,21 @@ public interface RequetAdmine {
 
      @GET("/GestionDeParking/Agent/parkingLibelle/{liblle}")
      public Call< List<Agent>> findListeAgentParking(@Path("liblle") String liblle);
+     
+    @POST("/GestionDeParking/Parking/")
+    @Headers("Content-Type: application/json")
+    public Call<Integer> saveParking(@Body Parking parking);
+    
+    @DELETE("/GestionDeParking/Parking/liblle/{liblle}")
+    public Call<Integer>deleteParking(@Path("liblle") String liblle );
+    
+    
+    @POST("/GestionDeParking/Agent/")
+    @Headers("Content-Type: application/json")
+    public Call<Integer> saveAgent(@Body Agent agent);
+    
+    @DELETE("/GestionDeParking/Agent/NumCIN/{NumCIN}")
+    public Call<Integer>deleteAgent(@Path("NumCIN") String NumCIN );
+    
+    
 }

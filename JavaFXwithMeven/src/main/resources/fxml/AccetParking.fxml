@@ -14,7 +14,7 @@
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="846.0" layoutY="359.0" text="Annuler" textFill="#5d82c7" />
+      <JFXButton  fx:id="anuler"  layoutX="846.0" layoutY="359.0" text="Annuler" textFill="#5d82c7" />
       <TableView fx:id="tableView" layoutX="2.0" prefHeight="198.0" prefWidth="673.0">
                <columns>
                   <TableColumn fx:id="dateEntre" prefWidth="154.40" text="DateEntre" />

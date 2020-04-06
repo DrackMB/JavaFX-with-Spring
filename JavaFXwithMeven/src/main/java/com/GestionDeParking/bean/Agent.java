@@ -18,6 +18,10 @@ public class Agent {
     @Expose
     private String dateDeRecreutment;
 
+    @SerializedName("parking")
+    @Expose
+    private Parking parking;
+
     public String getNom() {
         return nom;
     }
@@ -49,5 +53,24 @@ public class Agent {
     public void setDateDeRecreutment(String dateDeRecreutment) {
         this.dateDeRecreutment = dateDeRecreutment;
     }
+
+    public Parking getParking() {
+        return parking;
+    }
+
+    public void setParking(Parking parking) {
+        this.parking = parking;
+    }
+    
+
+    public Agent(String nom, String prenom, String numCIN, String dateDeRecreutment, Parking parking) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.numCIN = numCIN;
+        this.dateDeRecreutment = dateDeRecreutment;
+        this.parking = parking;
+    }
+
+   
 
 }

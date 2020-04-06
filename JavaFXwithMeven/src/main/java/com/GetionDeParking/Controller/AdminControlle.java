@@ -64,6 +64,93 @@ public class AdminControlle implements Initializable {
     public void setLabel(Label label) {
         this.label = label;
     }
+    
+    
+    @FXML
+    private void ajouterParking(ActionEvent event){
+        //ajouterParking.getScene().getWindow().hide();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/fxml/AjouterParking.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            stage.setTitle("Home Scene");
+            stage.setScene(scene);
+            stage.show();
+        
+    }
+     @FXML
+    private void suprimerParking(ActionEvent event){
+        //ajouterParking.getScene().getWindow().hide();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/fxml/SuprimerParking.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            stage.setTitle("Home Scene");
+            stage.setScene(scene);
+            stage.show();
+        
+    }
+     @FXML
+    private void ajouterAgent(ActionEvent event){
+        //ajouterParking.getScene().getWindow().hide();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/fxml/AjouterAgent.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            stage.setTitle("Home Scene");
+            stage.setScene(scene);
+            stage.show();
+        
+    }
+    @FXML
+    private void suprimerAgent(ActionEvent event){
+        //ajouterParking.getScene().getWindow().hide();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/fxml/SuprimerAgent.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            stage.setTitle("Home Scene");
+            stage.setScene(scene);
+            stage.show();
+        
+    }
+      @FXML
+    private void Deconneter(ActionEvent event){
+            ajouterParking.getScene().getWindow().hide();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/fxml/HomeAdminPage.fxml"));
+            } catch (IOException ex) {
+                Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            stage.setTitle("Home Scene");
+            stage.setScene(scene);
+            stage.show();
+        
+    }
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -76,7 +163,7 @@ public class AdminControlle implements Initializable {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            accesParking.getScene().getWindow().hide();
+                            //accesParking.getScene().getWindow().hide();
                             FXMLLoader loade = new FXMLLoader(getClass().getResource("/fxml/AccetParking.fxml"));
                             Parent root = null;
                             try {

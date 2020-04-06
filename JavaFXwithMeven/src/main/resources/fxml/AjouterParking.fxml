@@ -5,14 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="317.0" prefWidth="451.0" style="-fx-background-color: #2D3447;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.GetionDeParking.Controller.AjouterParkingController">
+<AnchorPane id="AnchorPane" prefHeight="317.0" prefWidth="451.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GetionDeParking.Controller.AjouterParkingController">
    <children>
-      <JFXTextField  fx:id="libelle" layoutX="194.0" layoutY="71.0" promptText="Libelle" />
-      <JFXTextField  fx:id="adress"  layoutX="201.0" layoutY="148.0" promptText="Adress Parking" />
+      <JFXTextField fx:id="libelle" layoutX="194.0" layoutY="71.0" promptText="Libelle" />
+      <JFXTextField fx:id="adress" layoutX="201.0" layoutY="148.0" promptText="Adress Parking" />
       <Label alignment="CENTER" layoutX="75.0" layoutY="87.0" prefHeight="18.0" prefWidth="84.0" text="Libelle" textFill="#afb0cf" />
       <Label alignment="CENTER" layoutX="75.0" layoutY="164.0" prefHeight="18.0" prefWidth="84.0" text="Adress" textFill="#afb0cf" />
-      <Label  fx:id="errore"  layoutX="75.0" layoutY="205.0" prefHeight="39.0" prefWidth="319.0" textFill="RED" />
-      <JFXButton  fx:id="ajouter" layoutX="159.0" layoutY="257.0" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #659c7d;" text="Ajouter" textFill="WHITE" />
+      <Label fx:id="errore" layoutX="41.0" layoutY="205.0" prefHeight="39.0" prefWidth="382.0" textFill="RED" />
+      <JFXButton fx:id="ajouter" layoutX="159.0" layoutY="257.0" onAction="#saveParking" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #659c7d;" text="Ajouter" textFill="WHITE" />
    </children>
 </AnchorPane>

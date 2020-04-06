@@ -1,36 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="395.0" prefWidth="573.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GetionDeParking.Controller.SuprimerParkingController">
    <children>
-      <TreeTableView layoutX="17.0" layoutY="25.0" prefHeight="200.0" prefWidth="538.0" style="-fx-background-color: #948a8a;">
+      <TableView fx:id="tableView" layoutX="11.0" layoutY="7.0" prefHeight="222.0" prefWidth="550.0" style="-fx-background-color: #948a8a;">
         <columns>
-          <TreeTableColumn prefWidth="537.6000122070312" text="Parking">
+          <TableColumn fx:id="parking" prefWidth="537.6000064849853" text="Parking">
                <columns>
-                  <TreeTableColumn prefWidth="275.20001220703125" text="Libelle" />
-                  <TreeTableColumn prefWidth="263.199951171875" text="Adress" />
+                  <TableColumn fx:id="liblle" prefWidth="275.20001220703125" text="Libelle" />
+                  <TableColumn fx:id="adress" prefWidth="263.199951171875" text="Adress" />
                </columns>
-            </TreeTableColumn>
+            </TableColumn>
         </columns>
-      </TreeTableView>
-      <JFXButton fx:id="accesParking" layoutX="407.0" layoutY="291.0" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #c45050;" text="Delete" textFill="WHITE" />
-      <JFXTextField fx:id="NameParking" layoutX="112.0" layoutY="291.0" prefHeight="28.0" prefWidth="265.0" promptText="Name of Parking">
+      </TableView>
+      <JFXButton fx:id="deleteParking" layoutX="432.0" layoutY="283.0" onAction="#deleteParking" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #c45050;" text="Delete" textFill="WHITE" />
+      <Label fx:id="NameParking" layoutX="126.0" layoutY="278.0" prefHeight="28.0" prefWidth="265.0">
          <font>
             <Font size="14.0" />
          </font>
-      </JFXTextField>
-      <JFXButton layoutX="233.0" layoutY="348.0" prefHeight="26.0" prefWidth="133.0" style="-fx-background-color: #919191;" text="Terminer" textFill="WHITE" />
-      <Label alignment="CENTER" layoutX="2.0" layoutY="298.0" prefHeight="18.0" prefWidth="95.0" style="-fx-font-style: italic;" text="Libelle" textFill="#ca7b7b">
-         <font>
-            <Font size="15.0" />
-         </font>
       </Label>
+      <JFXButton fx:id="terminer" layoutX="233.0" layoutY="348.0" onAction="#terminer" prefHeight="26.0" prefWidth="133.0" style="-fx-background-color: #919191;" text="Terminer" textFill="WHITE" />
+      
    </children>
 </AnchorPane>
