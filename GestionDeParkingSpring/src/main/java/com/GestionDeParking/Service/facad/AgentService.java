@@ -23,4 +23,6 @@ public interface AgentService {
     Agent findByNumCIN(String paramString);
     
     List<Agent> findByParkingLiblle(String liblle);
+    
+    List<Agent> findAll();
 }

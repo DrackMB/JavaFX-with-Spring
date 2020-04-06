@@ -19,8 +19,7 @@ public class Agent  implements Serializable {
     private String nom;
     private String prenom;
     private String numCIN;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dateDeRecreutment;
+    private String dateDeRecreutment;
     @ManyToOne
     private Parking parking;
 
@@ -48,11 +47,11 @@ public class Agent  implements Serializable {
          this.numCIN = numCIN;
     }
 
-    public Date getDateDeRecreutment() {
+    public String getDateDeRecreutment() {
          return this.dateDeRecreutment;
     }
 
-    public void setDateDeRecreutment(Date dateDeRecreutment) {
+    public void setDateDeRecreutment(String dateDeRecreutment) {
          this.dateDeRecreutment = dateDeRecreutment;
     }
 

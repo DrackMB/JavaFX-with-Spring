@@ -44,20 +44,25 @@ public class AgentRes {
     }
     @Transactional
     @DeleteMapping("/NumCIN/{NumCIN}")
-    public int deleteByNumCIN(String numCIN) {
-        return this.agentService.deleteByNumCIN(numCIN);
+    public int deleteByNumCIN( @PathVariable String NumCIN) {
+        return this.agentService.deleteByNumCIN(NumCIN);
     }
     @PostMapping("/")
     public int save(@RequestBody Agent agent) {
         return this.agentService.save(agent, agent.getParking());
     }
     @GetMapping("/numCIN/{numCIN}")
-    public Agent findByNumCIN(String numCIN) {
+    public Agent findByNumCIN( @PathVariable String numCIN) {
         return agentService.findByNumCIN(numCIN);
     }
     @GetMapping("/parkingLibelle/{liblle}")
-    public List<Agent> findByParkingLiblle(String liblle) {
+    public List<Agent> findByParkingLiblle( @PathVariable String liblle) {
         return agentService.findByParkingLiblle(liblle);
     }
+    @GetMapping("/")
+    public List<Agent> findAll() {
+        return agentService.findAll();
+    }
+    
     
 }

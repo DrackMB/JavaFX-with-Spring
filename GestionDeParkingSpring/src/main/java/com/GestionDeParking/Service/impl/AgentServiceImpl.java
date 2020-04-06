@@ -72,4 +72,9 @@ public class AgentServiceImpl implements AgentService {
     public List<Agent> findByParkingLiblle(String liblle) {
         return this.agentRepository.findByParkingLiblle(liblle);
     }
+
+    @Override
+    public List<Agent> findAll() {
+        return this.agentRepository.findAll();
+    }
 }
