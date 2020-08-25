@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#noir{
+				background-color:rgba(0,0,0,0.8);
+				position:absolute;
+				z-index:1;
+				left:0;
+				top:0;
+			}
+			#blanc{
+				background-color:white;
+				position:absolute;
+				z-index:2;
+				padding:10px;
+				visibility:hidden;
+			}
+			#monimage{
+				width:800px;
+				height:400px;
+				display:none;
+			}
+			.MyImages{
+			display: none;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div id="noir"></div>
+		<div class="MyImages">
+			<img src="./bathrooms.png"  style="width:40" />
+		</div>
+		<div class="MyImages">
+			<img src="./bmw-mini-icon.png"  style="width:40%" />
+		</div>
+		<div class="MyImages">
+			<img src="cancer.png"  style="width:40%" />
+		</div>
+	</body>
+			<script>
+			var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("MyImages");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+			
+		</script>
+</html>

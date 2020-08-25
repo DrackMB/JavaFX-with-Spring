@@ -28,9 +28,9 @@ public class AdministrateurRes {
         return administrateurService.afficherListdeReservation(liblle);
     }
 
-    @GetMapping("/user/{user}")
-    public Administrateur Login(@PathVariable String user) {
-        return administrateurService.Login(user);
+    @GetMapping("/user/{user}/mdp/{mdp}")
+    public int Login(@PathVariable String user,@PathVariable String mdp) {
+        return administrateurService.Login(user,mdp);
     }
 
     @Transactional
@@ -54,4 +54,18 @@ public class AdministrateurRes {
     public int suprimerAgent(@PathVariable String numCIN) {
         return administrateurService.suprimerAgent(numCIN);
     }
+    @PostMapping("/")
+    public int save(@RequestBody Administrateur administrateur) {
+        return administrateurService.save(administrateur);
+    }
+    @DeleteMapping("/Log/{login}")
+    public int deleteByLogin(String login) {
+        return administrateurService.deleteByLogin(login);
+    }
+    @GetMapping("/")
+    public List<Administrateur> findAll() {
+        return administrateurService.findAll();
+    }
+    
+    
 }

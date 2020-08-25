@@ -39,6 +39,8 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private Button admine;
+    @FXML
+    private Button admine1;
     
 
     
@@ -51,6 +53,17 @@ public class FXMLDocumentController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         stage.setTitle("Client Scene");
+        stage.setScene(scene);
+        stage.show();
+    }
+     @FXML
+    private void AccetSuperAdmin(ActionEvent event) throws IOException {
+       admine1.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/HomeAdminPage.fxml"));
+        Stage stage = new Stage(); 
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/Styles.css");
+        stage.setTitle("Super Admine Scene");
         stage.setScene(scene);
         stage.show();
     }

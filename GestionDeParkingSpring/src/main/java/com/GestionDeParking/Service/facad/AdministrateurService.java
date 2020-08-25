@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface AdministrateurService {
 
-    Administrateur Login(String login);
+    int Login(String login,String mdp);
 
     int suprimerParking(String libelle);
 
@@ -19,6 +19,11 @@ public interface AdministrateurService {
     int suprimerAgent(String numCIN);
     
     List<Reservation> afficherListdeReservation(String liblle);
+     int save(Administrateur administrateur);
+     
+     int deleteByLogin(String login);
+     
+     List<Administrateur> findAll();
     
     
 

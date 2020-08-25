@@ -54,60 +54,71 @@ public class AdmineHomePageControlle implements Initializable {
 
     @FXML
     private JFXButton forgetpassword;
-    
+
     @FXML
     private Label errore;
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
+        if (!username.getText().isEmpty() || password.getText().isEmpty()) {
+            Call<Integer> logins = requetVerification.findByLogin(username.getText(),password.getText());
+            logins.enqueue(new Callback<Integer>() {
+                @Override
+                public void onResponse(Call<Integer> call, Response<Integer> rspns) {
+                    //if (rspns.isSuccessful()) {
+                        if (rspns.body() != null && rspns.body()>0) {
+                            int adminResult = rspns.body();
+                                Platform.runLater(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        login.getScene().getWindow().hide();
+                                        Parent root = null;
+                                        if (adminResult == 1) {
+                                            try {
+                                                root = FXMLLoader.load(getClass().getResource("/fxml/AdminFX.fxml"));
 
-        Call<Administrateur> logins = requetVerification.findByLogin(username.getText());
-        logins.enqueue(new Callback<Administrateur>() {
-            @Override
-            public void onResponse(Call<Administrateur> call, Response<Administrateur> rspns) {
-                if (rspns.isSuccessful()) {
+                                            } catch (IOException ex) {
+                                                Logger.getLogger(AdmineHomePageControlle.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
+                                        } else if (adminResult==2) {
+                                            try {
+                                                root = FXMLLoader.load(getClass().getResource("/fxml/SuperAdminFX.fxml"));
 
-                    Administrateur adminResult = rspns.body();
-                    if (adminResult.getMdp().equals(password.getText())) {
+                                            } catch (IOException ex) {
+                                                Logger.getLogger(AdmineHomePageControlle.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
+                                        }
 
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                
-                                AdminControlle  adminControlle = null;
-                                            
-                                    login.getScene().getWindow().hide();
-                                    Parent root = null;
-                                    try {
-                                        root = FXMLLoader.load(getClass().getResource("/fxml/AdminFX.fxml"));
+                                        Stage stage = new Stage();
+                                        Scene scene = new Scene(root);
+                                        scene.getStylesheets().add("/styles/Styles.css");
+                                        stage.setTitle("Admin");
+                                        stage.setScene(scene);
+                                        stage.show();
 
-                                    } catch (IOException ex) {
-                                        Logger.getLogger(AdmineHomePageControlle.class.getName()).log(Level.SEVERE, null, ex);
                                     }
-                                    Stage stage = new Stage();
-                                    Scene scene = new Scene(root);
-                                    scene.getStylesheets().add("/styles/Styles.css");
-                                    stage.setTitle("Admin");
-                                    stage.setScene(scene);
-                                    stage.show();
+
+                                });
+
+                           
                                 
-                            }
+                            
+                        } else {
+                            errore.setText("Compte n'existe pas ou bient User ou mdp incorrect");
+                        }
 
-                        });
-
-                    } else{ errore.setText("Errore mdp ou bien user n'existe pas ");}
-
-                } else {
-                    System.out.println("erooore" + rspns.errorBody());
+                  //  }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<Administrateur> call, Throwable thrwbl) {
-                thrwbl.printStackTrace();
-            }
-        });
+                @Override
+                public void onFailure(Call<Integer> call, Throwable thrwbl) {
+                    thrwbl.printStackTrace();
+                }
+            });
 
+        } else {
+            errore.setText(" un  de deux champ est vide ");
+        }
     }
 
     @Override

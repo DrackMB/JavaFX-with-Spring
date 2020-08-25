@@ -73,14 +73,14 @@ public class SuprimerParkingController implements Initializable {
     public void deleteParking(ActionEvent event) {
         Parking ra = tableView.getSelectionModel().getSelectedItem();
         
-        Call<Integer> deleteParking = requet.deleteAgent(ra.getLiblle());
+        Call<Integer> deleteParking = requet.deleteParking(ra.getLiblle());
         deleteParking.enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> rspns) {
                 if (rspns.isSuccessful()) {
                     if (rspns.body() > 0) {
                         tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItem());
-                        NameParking.setText( "Vous avez supprimer Le parking "+ ra.getLiblle());
+                       // NameParking.setText( "Vous avez supprimer Le parking "+ ra.getLiblle());
                     }
                 } else {
                     NameParking.setText( "eroore");

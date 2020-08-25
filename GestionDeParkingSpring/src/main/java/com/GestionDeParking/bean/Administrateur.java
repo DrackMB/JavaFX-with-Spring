@@ -15,14 +15,14 @@ public class Administrateur  implements Serializable {
     private Long id;
     private String login;
     private String mdp;
-    private String gender;
+    private String type;
 
-    public String getGender() {
-        return gender;
+    public String getType() {
+        return type;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setType(String gender) {
+        this.type = gender;
     }
 
     public String getLogin() {

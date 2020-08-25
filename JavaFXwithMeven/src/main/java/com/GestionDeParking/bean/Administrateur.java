@@ -14,9 +14,9 @@ public class Administrateur {
     @SerializedName("mdp")
     @Expose
     private String mdp;
-    @SerializedName("gender")
+    @SerializedName("type")
     @Expose
-    private String gender;
+    private String type;
 
     public Integer getId() {
         return id;
@@ -42,12 +42,19 @@ public class Administrateur {
         this.mdp = mdp;
     }
 
-    public String getGender() {
-        return gender;
+    public String getType() {
+        return type;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setType(String type) {
+        this.type = type;
     }
+
+    public Administrateur(String login, String mdp, String type) {
+        this.login = login;
+        this.mdp = mdp;
+        this.type = type;
+    }
+    
 
 }
